@@ -1,0 +1,39 @@
+syntax = "proto2";
+
+package vctn;
+
+message vct_pos{
+    required int64 posm_ = 1;
+    required int64 poss_ = 2;
+}
+
+message vct_value_n{
+    required vct_pos pos_ = 1;
+	required int64 a_ = 2;
+	required int64 b_ = 3;
+    required bool commit_ = 5;
+}
+message vct_value{
+    required string key_ = 1;
+    required vct_value_n main_ = 2;
+    repeated vct_value_n his_ = 3;
+    required int64 commit_count_ = 4;
+}
+
+message keytable_value{
+    required string field_ = 1;
+    required string route_table_ = 2;
+    required string route_table_field_ = 3;
+}
+
+
+message route_value_col{
+    required string name_ = 1;
+    required string value_ = 2;
+}
+message route_value{
+    required string region_ = 1; // country in enterprise
+    required string area_ = 2;// area in enterprise
+    repeated route_value_col col_ = 3; 
+}
+
